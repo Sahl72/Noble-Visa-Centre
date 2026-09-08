@@ -1,0 +1,6 @@
+{
+  "name": "Noble Visa Centre",
+  "description": "Premier visa consultancy and study abroad guidance website with instant WhatsApp consultation booking and comprehensive visa pathways.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

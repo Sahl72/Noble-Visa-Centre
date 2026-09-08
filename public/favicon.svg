@@ -1,0 +1,39 @@
+<svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="noble-favicon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#1e40af" />
+      <stop offset="50%" stopColor="#2563eb" />
+      <stop offset="100%" stopColor="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="220" rx="36" fill="#071946" />
+  <g fill="url(#noble-favicon-grad)" transform="translate(10, 8) scale(0.9)">
+    <polygon points="100,20 112,32 100,44 88,32" />
+    <polygon points="82,46 94,58 82,70 70,58" />
+    <polygon points="118,46 130,58 118,70 106,58" />
+    <polygon points="64,74 76,86 64,98 52,86" />
+    <polygon points="100,74 112,86 100,98 88,86" />
+    <polygon points="136,74 148,86 136,98 124,86" />
+    <polygon points="46,104 58,116 46,128 34,116" />
+    <polygon points="82,104 94,116 82,128 70,116" />
+    <polygon points="118,104 130,116 118,128 106,116" />
+    <polygon points="154,104 166,116 154,128 142,116" />
+    <polygon points="30,136 42,148 30,160 18,148" />
+    <polygon points="65,135 77,147 65,159 53,147" />
+    <polygon points="100,133 111,144 100,155 89,144" />
+    <polygon points="135,135 147,147 135,159 123,147" />
+    <polygon points="170,136 182,148 170,160 158,148" />
+    <polygon points="16,168 28,178 18,188 6,178" />
+    <polygon points="48,166 60,177 50,188 38,177" />
+    <polygon points="81,164 92,174 83,184 72,174" />
+    <polygon points="119,164 128,174 117,184 108,174" />
+    <polygon points="152,166 162,177 150,188 140,177" />
+    <polygon points="184,168 194,178 182,188 172,178" />
+    <polygon points="8,198 20,204 12,214 0,208" />
+    <polygon points="34,196 46,204 38,214 26,206" />
+    <polygon points="63,194 74,202 68,212 57,204" />
+    <polygon points="137,194 143,204 132,212 126,202" />
+    <polygon points="166,196 174,206 162,214 154,204" />
+    <polygon points="192,198 200,208 188,214 180,204" />
+  </g>
+</svg>
