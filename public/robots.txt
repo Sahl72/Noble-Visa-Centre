@@ -1,6 +1,6 @@
-# robots.txt for Noble Visa Centre (https://noblevisacentre.com)
+# robots.txt for Noble Visa Centre (https://noblevisacentre.org)
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://noblevisacentre.com/sitemap.xml
+Sitemap: https://noblevisacentre.org/sitemap.xml

@@ -16,7 +16,6 @@ import { UniversitiesPage } from './components/pages/UniversitiesPage';
 import { ProgramsPage } from './components/pages/ProgramsPage';
 import { ConsultationPage } from './components/pages/ConsultationPage';
 import { SuccessStoriesPage } from './components/pages/SuccessStoriesPage';
-import { SitemapPage } from './components/pages/SitemapPage';
 import { VisaService, Country, UniversityPartner } from './types';
 import { getWhatsAppUrl, COUNTRIES, VISA_SERVICES } from './data/visaData';
 
@@ -25,26 +24,33 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [queryParams, setQueryParams] = useState<Record<string, string>>({});
 
-  // Sync hash routing with browser URL
+  // Sync routing with browser URL (supports both clean pathname and hash routes)
   const parseRouteFromUrl = useCallback(() => {
     try {
-      const hash = window.location.hash.replace(/^#\/?/, '');
-      if (!hash) {
+      let rawRoute = window.location.hash.replace(/^#\/?/, '');
+      if (!rawRoute) {
+        const path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '');
+        if (path && path !== 'index.html') {
+          rawRoute = path;
+        }
+      }
+      if (!rawRoute) {
         setCurrentPage('home');
         setQueryParams({});
         return;
       }
       
-      const [path, queryString] = hash.split('?');
+      const [path, queryString] = rawRoute.split('?');
       let cleanPath = path || 'home';
-      // Default /services or #services to home page
+      // Default /services to home page
       if (cleanPath === 'services') {
         cleanPath = 'home';
       }
       const params: Record<string, string> = {};
       
-      if (queryString) {
-        const searchParams = new URLSearchParams(queryString);
+      const searchStr = queryString || window.location.search.replace(/^\?/, '');
+      if (searchStr) {
+        const searchParams = new URLSearchParams(searchStr);
         searchParams.forEach((val, key) => {
           params[key] = val;
         });
@@ -71,8 +77,7 @@ export default function App() {
       universities: 'Partner Universities & Medical Colleges | Noble Visa Centre',
       programs: 'Degree & Course Finder (MBBS, IT, Business) | Noble Visa Centre',
       consultation: 'Free Visa Assessment & University Consultation | Noble Visa Centre',
-      'success-stories': 'Visa Grants & Student Success Stories | Noble Visa Centre',
-      sitemap: 'Visual Sitemap & Global Directory | Noble Visa Centre'
+      'success-stories': 'Visa Grants & Student Success Stories | Noble Visa Centre'
     };
 
     document.title = titles[currentPage] || 'Noble Visa Centre | Study Abroad & Student Visa Consultants';
@@ -235,13 +240,6 @@ export default function App() {
           <SuccessStoriesPage 
             onNavigate={navigateTo}
             onOpenConsultation={(params) => navigateTo('consultation', params)}
-          />
-        )}
-
-        {/* VIEW 7: VISUAL SITEMAP & DIRECTORY PAGE */}
-        {(currentPage === 'sitemap' || currentPage === 'site-map') && (
-          <SitemapPage 
-            onNavigate={navigateTo}
           />
         )}
 

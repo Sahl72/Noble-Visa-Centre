@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Sparkles, ArrowRight, ZoomIn, X, Search, CheckCircle2, ChevronRight, Share2, ExternalLink, ShieldCheck, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, ArrowRight, ZoomIn, X, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { SUCCESS_STORIES, getWhatsAppUrl } from '../../data/visaData';
 import { SuccessStory } from '../../types';
 import { WhatsAppIcon } from '../Header';
@@ -10,38 +10,10 @@ interface SuccessStoriesPageProps {
 }
 
 export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNavigate, onOpenConsultation }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const [activePhotoModal, setActivePhotoModal] = useState<SuccessStory | null>(null);
 
-  const categories = [
-    { id: 'all', label: 'All Approved Visas' },
-    { id: 'russia-belarus', label: 'Russia & Belarus' },
-    { id: 'malaysia-singapore', label: 'Malaysia & Singapore' },
-    { id: 'taiwan', label: 'Taiwan (Paid Internships)' },
-    { id: 'uk-europe', label: 'UK & Switzerland' }
-  ];
-
-  const filteredStories = useMemo(() => {
-    return SUCCESS_STORIES.filter(story => {
-      if (selectedCategory !== 'all' && story.category !== selectedCategory) {
-        return false;
-      }
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const match = story.name.toLowerCase().includes(q) ||
-          story.country.toLowerCase().includes(q) ||
-          story.visaType.toLowerCase().includes(q) ||
-          (story.university && story.university.toLowerCase().includes(q)) ||
-          (story.intake && story.intake.toLowerCase().includes(q));
-        if (!match) return false;
-      }
-      return true;
-    });
-  }, [selectedCategory, searchQuery]);
-
-  const handleApplySimilar = (story: SuccessStory) => {
-    const msg = `Hello Noble Visa Centre! I saw the visa approval proof for *${story.name}* (${story.country} - ${story.visaType}) and would like to check my eligibility for this destination.`;
+  const handleStartVisaJourney = () => {
+    const msg = "Hello Noble Visa Centre! I saw your authentic visa approvals and would like to start my visa journey.";
     window.open(getWhatsAppUrl(msg), '_blank');
   };
 
@@ -59,12 +31,12 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
               Home
             </button>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-bold">Success Stories & Visa Grants</span>
+            <span className="text-slate-900 font-bold">Success Stories</span>
           </nav>
           
-          <div className="hidden sm:flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>100% Genuine Visa Proofs</span>
+            <span>100% Authentic Visa Proofs</span>
           </div>
         </div>
       </div>
@@ -77,7 +49,7 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-amber-400 text-xs font-extrabold uppercase tracking-wider mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Noble Visa Centre Official Proof Gallery</span>
+              <span>Official Visa Proof Gallery</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
@@ -86,24 +58,22 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
             </h1>
             
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-              Direct proof of student visas, university admissions, and international placements secured for Sri Lankan students since 2009. Click any image to view full high-resolution documentation.
+              Official student visa approvals and university placement proofs secured through Noble Visa Centre. Click any poster to view in full resolution.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a
-                href={getWhatsAppUrl("Hello Noble Visa Centre! I am browsing your authentic student visa approvals and would like free counseling.")}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                onClick={handleStartVisaJourney}
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-3 rounded-xl font-bold text-xs sm:text-sm shadow-lg shadow-green-950/30 transition-all cursor-pointer active:scale-95"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
-                <span>Chat with Counselor</span>
-              </a>
+                <span>Start Your Visa Journey Now</span>
+              </button>
 
               <button
                 onClick={() => {
                   if (onOpenConsultation) {
-                    onOpenConsultation({ interest: 'Student Visa Success Story Guidance' });
+                    onOpenConsultation({ interest: 'General Visa Consultation' });
                   } else if (onNavigate) {
                     onNavigate('consultation');
                   }
@@ -118,160 +88,63 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
         </div>
       </section>
 
-      {/* Main Visa Gallery */}
+      {/* Main Visa Gallery: Pure Full-Size Poster Images with WhatsApp Button */}
       <section className="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Controls Bar: Category Filters & Search */}
-        <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 mb-8 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs">
-          
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  selectedCategory === cat.id
-                    ? 'bg-[#071330] text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Search Box */}
-          <div className="relative min-w-[240px]">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by student, country..."
-              className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:bg-white"
-            />
-          </div>
-
-        </div>
-
-        {/* Results Counter */}
-        <div className="flex items-center justify-between mb-6 px-1">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-            Showing <span className="text-slate-900 font-extrabold">{filteredStories.length}</span> Verified Visa Approvals
+        {/* Gallery Counter */}
+        <div className="flex items-center justify-between mb-8 px-1">
+          <p className="text-xs sm:text-sm font-extrabold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <span>Showing {SUCCESS_STORIES.length} Verified Visa Proofs</span>
           </p>
-          <p className="text-xs text-slate-400 hidden sm:block">
-            Click any photo to enlarge & verify
+          <p className="text-xs text-slate-500 hidden sm:block">
+            Click any poster to view in high resolution
           </p>
         </div>
 
-        {/* Clean Full-Size Image Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
-          {filteredStories.map((story) => (
+        {/* Clean Grid of Full-Size Poster Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
+          {SUCCESS_STORIES.map((story) => (
             <div 
               key={story.id}
-              className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group text-left relative"
+              className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group text-left"
             >
-              {/* Full Image Container */}
+              {/* Full-Size Poster Image Container (Uncropped, natural aspect ratio) */}
               <div 
-                className="relative aspect-[4/5] bg-slate-900 overflow-hidden cursor-pointer"
+                className="relative bg-slate-100 overflow-hidden cursor-pointer flex items-center justify-center"
                 onClick={() => setActivePhotoModal(story)}
+                title="Click to view full high-resolution poster"
               >
                 <img 
                   src={story.image} 
-                  alt={`${story.name} Visa Approval`} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Noble Visa Centre Visa Approval" 
+                  className="w-full h-auto object-contain block group-hover:scale-[1.01] transition-transform duration-200"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-                
-                {/* Subtle Gradient at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                {/* Top Badge: Visa Type / Special feature */}
-                {story.badge && (
-                  <div className="absolute top-3 left-3 bg-[#071330]/90 backdrop-blur-md text-amber-300 border border-amber-400/30 text-[10px] font-extrabold px-2.5 py-1 rounded-lg shadow-sm">
-                    {story.badge}
+                {/* Subtle Hover Zoom Overlay */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                    <ZoomIn className="w-5 h-5 text-blue-700" />
                   </div>
-                )}
-
-                {/* Country Flag Tag top-right */}
-                <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-slate-900 text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1.5">
-                  <span>{story.flag || '🌍'}</span>
-                  <span>{story.country}</span>
-                </div>
-
-                {/* Center Hover Zoom Indicator */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                  <div className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
-                    <ZoomIn className="w-5 h-5" />
-                  </div>
-                </div>
-
-                {/* Student Info on bottom of photo */}
-                <div className="absolute bottom-3 inset-x-3 text-left">
-                  <h3 className="text-white font-extrabold text-sm sm:text-base leading-tight truncate">
-                    {story.name}
-                  </h3>
-                  <p className="text-slate-200 text-xs truncate mt-0.5 font-medium">
-                    {story.visaType}
-                  </p>
                 </div>
               </div>
 
-              {/* Minimalist Card Bottom details */}
-              <div className="p-3.5 bg-slate-50 border-t border-slate-100 flex flex-col justify-between flex-1 space-y-2.5">
-                {story.university && (
-                  <div className="flex items-center gap-1.5 text-xs text-slate-600 font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                    <span className="truncate">{story.university}</span>
-                  </div>
-                )}
-
-                {story.intake && (
-                  <p className="text-[11px] text-slate-500 truncate">
-                    Program: <span className="text-slate-800 font-semibold">{story.intake}</span>
-                  </p>
-                )}
-
-                <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => setActivePhotoModal(story)}
-                    className="text-xs font-bold text-slate-700 hover:text-blue-700 flex items-center gap-1 cursor-pointer"
-                  >
-                    <ZoomIn className="w-3.5 h-3.5 text-blue-600" />
-                    <span>View Photo</span>
-                  </button>
-
-                  <button
-                    onClick={() => handleApplySimilar(story)}
-                    className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xs transition active:scale-95 cursor-pointer"
-                  >
-                    <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
-                    <span>Inquire</span>
-                  </button>
-                </div>
+              {/* Start Your Visa Journey Now WhatsApp Button on Each Card */}
+              <div className="p-3.5 bg-white border-t border-slate-100">
+                <button
+                  onClick={handleStartVisaJourney}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da851] text-white py-3 px-4 rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer active:scale-98"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
+                  <span className="font-extrabold tracking-tight">Start Your Visa Journey Now</span>
+                </button>
               </div>
 
             </div>
           ))}
         </div>
-
-        {/* Empty state if search has no results */}
-        {filteredStories.length === 0 && (
-          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-xs max-w-md mx-auto my-8">
-            <p className="text-slate-400 text-sm font-medium">No success stories match your search query.</p>
-            <button
-              onClick={() => {
-                setSelectedCategory('all');
-                setSearchQuery('');
-              }}
-              className="mt-4 px-4 py-2 bg-[#071330] text-white text-xs font-bold rounded-xl cursor-pointer hover:bg-blue-950"
-            >
-              Clear Filters
-            </button>
-          </div>
-        )}
 
       </section>
 
@@ -282,24 +155,21 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
           onClick={() => setActivePhotoModal(null)}
         >
           <div 
-            className="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 flex flex-col relative max-h-[92vh]"
+            className="bg-white rounded-2xl sm:rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 flex flex-col relative max-h-[94vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Top Bar */}
-            <div className="bg-[#071330] text-white p-4 sm:p-5 flex justify-between items-center border-b border-blue-900 shrink-0">
-              <div className="text-left">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block">
-                  Noble Visa Centre • Verified Visa Grant
+            <div className="bg-[#071330] text-white p-3.5 sm:p-4 flex justify-between items-center border-b border-blue-900 shrink-0">
+              <div className="text-left flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs sm:text-sm font-bold text-white tracking-wide">
+                  Noble Visa Centre • Official Visa Grant Proof
                 </span>
-                <h4 className="text-base sm:text-lg font-bold text-white flex items-center gap-2 mt-0.5">
-                  <span>{activePhotoModal.name}</span>
-                  <span className="text-xs text-amber-300 font-normal">({activePhotoModal.country})</span>
-                </h4>
               </div>
 
               <button 
                 onClick={() => setActivePhotoModal(null)}
-                className="p-2 text-slate-300 hover:text-white rounded-full bg-white/10 hover:bg-rose-600 transition cursor-pointer"
+                className="p-1.5 text-slate-300 hover:text-white rounded-full bg-white/10 hover:bg-rose-600 transition cursor-pointer"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -307,56 +177,28 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
             </div>
 
             {/* Modal Image Display - Full size without cropping */}
-            <div className="bg-slate-950 flex-1 overflow-auto flex items-center justify-center p-2 min-h-[300px] max-h-[60vh]">
+            <div className="bg-slate-950 flex-1 overflow-auto flex items-center justify-center p-2 sm:p-4 min-h-[400px] max-h-[82vh]">
               <img 
                 src={activePhotoModal.image} 
-                alt={activePhotoModal.name}
-                className="max-h-[58vh] w-auto max-w-full object-contain rounded-lg shadow-lg"
+                alt="Visa Grant Proof"
+                className="max-h-[78vh] w-auto max-w-full object-contain rounded-lg shadow-xl"
                 referrerPolicy="no-referrer"
               />
             </div>
 
-            {/* Modal Details & WhatsApp Trigger */}
-            <div className="p-4 sm:p-5 text-left bg-slate-50 border-t border-slate-200 shrink-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="space-y-0.5">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-0.5 rounded-md">
-                    {activePhotoModal.visaType}
-                  </span>
-                  {activePhotoModal.badge && (
-                    <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-md">
-                      {activePhotoModal.badge}
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-slate-600 font-medium">
-                  Destination: <strong className="text-slate-900">{activePhotoModal.country}</strong> {activePhotoModal.university ? `• ${activePhotoModal.university}` : ''}
-                </p>
-              </div>
+            {/* Modal WhatsApp Action Button */}
+            <div className="p-3.5 sm:p-4 bg-slate-50 border-t border-slate-200 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <p className="text-xs text-slate-600 font-medium text-center sm:text-left">
+                Get direct guidance on university admissions & visa processing from our licensed counselors.
+              </p>
 
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                <button
-                  onClick={() => handleApplySimilar(activePhotoModal)}
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition active:scale-95 cursor-pointer"
-                >
-                  <WhatsAppIcon className="w-4 h-4 text-white" />
-                  <span>Inquire for {activePhotoModal.country}</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    const country = activePhotoModal.country;
-                    setActivePhotoModal(null);
-                    if (onOpenConsultation) {
-                      onOpenConsultation({ destination: country });
-                    }
-                  }}
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 bg-[#071330] hover:bg-blue-950 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md transition cursor-pointer"
-                >
-                  <span>Book Free Session</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+              <button
+                onClick={handleStartVisaJourney}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md transition active:scale-95 cursor-pointer"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>Start Your Visa Journey Now</span>
+              </button>
             </div>
 
           </div>
@@ -373,15 +215,13 @@ export const SuccessStoriesPage: React.FC<SuccessStoriesPageProps> = ({ onNaviga
             Get personalized eligibility checking, university shortlisting, and direct tuition payment guidance.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href={getWhatsAppUrl("Hello Noble Visa Centre! I would like to book a free consultation for student visa options.")}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={handleStartVisaJourney}
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-xl font-bold text-sm shadow-md transition cursor-pointer active:scale-95"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
-              <span>Connect on WhatsApp</span>
-            </a>
+              <span>Start Your Visa Journey Now</span>
+            </button>
             <button
               onClick={() => onNavigate && onNavigate('countries')}
               className="inline-flex items-center gap-2 bg-white text-[#071330] hover:bg-slate-100 px-6 py-3 rounded-xl font-bold text-sm shadow-md transition cursor-pointer active:scale-95"

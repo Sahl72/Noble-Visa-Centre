@@ -389,7 +389,7 @@ export const ConsultationPage: React.FC<ConsultationPageProps> = ({
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-800">Head Office: Colombo, Sri Lanka</span>
+                  <span className="font-bold text-slate-800">Headquarters: Battaramulla, Sri Jayawardhanapura</span>
                   <div className="text-[11px] text-slate-400">Operating Hours: Mon – Sat (9:00 AM – 6:00 PM IST)</div>
                 </div>
               </div>

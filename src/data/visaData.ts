@@ -22,38 +22,38 @@ export const WHATSAPP_DISPLAY = "+94 74 010 4106";
 export const LOCAL_PHONE_DISPLAY = "074 010 4106";
 
 export const BUSINESS_PHONES = [
-  { display: "074 010 4106", raw: "0740104106", intl: "+94 74 010 4106", label: "WhatsApp Hotline 1 / Colombo Head Office" },
-  { display: "074 010 2108", raw: "0740102108", intl: "+94 74 010 2108", label: "WhatsApp Hotline 2 / Battaramulla Branch" }
+  { display: "074 010 4106", raw: "0740104106", intl: "+94 74 010 4106", label: "WhatsApp Hotline 1 / Headquarters (Battaramulla)" },
+  { display: "074 010 2108", raw: "0740102108", intl: "+94 74 010 2108", label: "WhatsApp Hotline 2 / One Galle Face Branch" }
 ];
 
-export const EMAIL_DISPLAY = "info@noblevisacentre.com";
+export const EMAIL_DISPLAY = "info@noblevisacentre.org";
 
 export const OFFICE_BRANCHES = [
   {
-    name: "Head Office - Colombo",
-    address: "1A Centre Road, Colombo 00200",
-    city: "Colombo",
-    postalCode: "00200",
+    name: "Headquarters - Battaramulla",
+    address: "No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura",
+    city: "Battaramulla, Sri Jayawardhanapura",
+    postalCode: "10120",
     phone: "074 010 4106",
     rawPhone: "0740104106",
-    tag: "Head Office",
+    tag: "Headquarters",
     hours: "Mon – Fri: 9:00 AM – 5:30 PM | Sat: 9:00 AM – 2:00 PM",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+1A+Centre+Road+Colombo+00200+Sri+Lanka"
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+393+Lily+Avenue+Robert+Gunawardana+Mawatha+Battaramulla+Sri+Jayawardhanapura"
   },
   {
-    name: "Battaramulla Branch",
-    address: "936/2/G Battaramulla - Pannipitiya Rd, Battaramulla",
-    city: "Battaramulla",
-    postalCode: "10120",
+    name: "One Galle Face Branch",
+    address: "Level 12, One Galle Face Tower, Colombo, Sri Lanka",
+    city: "Colombo",
+    postalCode: "00200",
     phone: "074 010 2108",
     rawPhone: "0740102108",
     tag: "Branch Office",
     hours: "Mon – Fri: 9:00 AM – 5:30 PM | Sat: 9:00 AM – 2:00 PM",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+936/2/G+Battaramulla+-+Pannipitiya+Rd+Battaramulla+Sri+Lanka"
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=One+Galle+Face+Tower+Colombo+Sri+Lanka"
   }
 ];
 
-export const ADDRESS_DISPLAY = "1A Centre Road, Colombo 00200 | 936/2/G Battaramulla - Pannipitiya Rd, Battaramulla";
+export const ADDRESS_DISPLAY = "No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura | Level 12, One Galle Face Tower, Colombo, Sri Lanka";
 export const GOOGLE_RATING = "5.0";
 export const GOOGLE_REVIEWS_COUNT = "70+";
 

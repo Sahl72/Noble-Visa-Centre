@@ -299,7 +299,7 @@ export const StudentVisaConsultModal: React.FC<StudentVisaConsultModalProps> = (
                     Need instant advice on entry criteria & document verification?
                   </h5>
                   <p className="text-xs text-slate-300">
-                    Connect with our Colombo & Battaramulla admissions team for a personalized 1-on-1 WhatsApp consultation.
+                    Connect with our Battaramulla HQ & One Galle Face admissions team for a personalized 1-on-1 WhatsApp consultation.
                   </p>
                 </div>
 
@@ -657,7 +657,7 @@ export const StudentVisaConsultModal: React.FC<StudentVisaConsultModalProps> = (
           
           <div className="text-left">
             <span className="text-[11px] text-slate-500 block">
-              Official Head Office: Colombo | Branch: Battaramulla
+              Headquarters: No 393 Lily Avenue, Battaramulla | Branch: Level 12, One Galle Face Tower, Colombo
             </span>
             <span className="text-xs font-bold text-slate-800">
               Hotlines: 074 010 4106 / 074 010 2108

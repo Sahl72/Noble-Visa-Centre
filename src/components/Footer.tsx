@@ -311,10 +311,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button 
-                  onClick={() => navigateTo('sitemap')} 
+                  onClick={() => navigateTo('success-stories')} 
                   className="hover:text-cyan-400 transition cursor-pointer text-left block text-cyan-300 font-medium"
                 >
-                  Visual Sitemap & Directory
+                  Visa Success Stories
                 </button>
               </li>
             </ul>
@@ -328,13 +328,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             
             <div className="space-y-2.5">
               
-              {/* Colombo Head Office Card */}
+              {/* Battaramulla Headquarters Card */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+1A+Centre+Road+Colombo+00200+Sri+Lanka"
+                href="https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+393+Lily+Avenue+Robert+Gunawardana+Mawatha+Battaramulla+Sri+Jayawardhanapura"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
-                title="Click to open Colombo Office in Google Maps"
+                title="Click to open Headquarters in Google Maps"
               >
                 <div className="flex items-start gap-2.5 text-left">
                   <div className="w-8 h-8 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
@@ -342,10 +342,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   </div>
                   <div>
                     <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide block">
-                      COLOMBO HEAD OFFICE
+                      HEADQUARTERS
                     </span>
-                    <span className="text-[11px] text-slate-200 block mt-0.5">
-                      1A Centre Road, Colombo 00200
+                    <span className="text-[11px] text-slate-200 block mt-0.5 leading-snug">
+                      No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura
                     </span>
                     <div className="flex items-center gap-2.5 text-[10px] mt-1">
                       <span className="text-slate-300 font-bold">074 010 4106</span>
@@ -363,13 +363,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </a>
 
-              {/* Battaramulla Branch Card */}
+              {/* One Galle Face Branch Card */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+936/2/G+Battaramulla+-+Pannipitiya+Rd+Battaramulla+Sri+Lanka"
+                href="https://www.google.com/maps/search/?api=1&query=One+Galle+Face+Tower+Colombo+Sri+Lanka"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
-                title="Click to open Battaramulla Branch in Google Maps"
+                title="Click to open One Galle Face Branch in Google Maps"
               >
                 <div className="flex items-start gap-2.5 text-left">
                   <div className="w-8 h-8 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
@@ -377,10 +377,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   </div>
                   <div>
                     <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide block">
-                      BATTARAMULLA BRANCH
+                      ONE GALLE FACE BRANCH
                     </span>
-                    <span className="text-[11px] text-slate-200 block mt-0.5">
-                      936/2/G Battaramulla - Pannipitiya Rd
+                    <span className="text-[11px] text-slate-200 block mt-0.5 leading-snug">
+                      Level 12, One Galle Face Tower, Colombo, Sri Lanka
                     </span>
                     <div className="flex items-center gap-2.5 text-[10px] mt-1">
                       <span className="text-slate-300 font-bold">074 010 2108</span>
@@ -545,12 +545,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Terms & Conditions
             </button>
             <span className="text-slate-700">|</span>
-            <button 
-              onClick={() => navigateTo('sitemap')}
+            <a 
+              href="/sitemap.xml" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-cyan-300 transition cursor-pointer font-medium"
+              title="Google XML Sitemap"
             >
-              Sitemap
-            </button>
+              XML Sitemap
+            </a>
           </div>
 
           <div className="flex items-center gap-3">

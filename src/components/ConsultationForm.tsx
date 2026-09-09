@@ -284,14 +284,14 @@ export const ConsultationForm: React.FC = () => {
         {/* Office Branch Locations & Direct Hotlines */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           
-          {/* Head Office Card */}
+          {/* Headquarters Card */}
           <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">Colombo Head Office</h3>
+                <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">Headquarters</h3>
               </div>
-              <p className="text-xs text-slate-600">1A Centre Road, Colombo 00200</p>
+              <p className="text-xs text-slate-600">No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura</p>
               <p className="text-[11px] text-slate-400">Business Hours: Mon - Sat 9:00 AM – 6:00 PM</p>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -302,25 +302,25 @@ export const ConsultationForm: React.FC = () => {
                 <span>074 010 4106</span>
               </a>
               <a
-                href={getWhatsAppUrl("Hello Noble Visa Centre Colombo Head Office! I would like to book a consultation.")}
+                href={getWhatsAppUrl("Hello Noble Visa Centre Headquarters! I would like to book a consultation.")}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition shadow-xs"
-                title="WhatsApp Colombo Office"
+                title="WhatsApp Headquarters"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
 
-          {/* Battaramulla Branch Card */}
+          {/* One Galle Face Branch Card */}
           <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">Battaramulla Branch</h3>
+                <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">One Galle Face Branch</h3>
               </div>
-              <p className="text-xs text-slate-600">936/2/G Battaramulla - Pannipitiya Rd, Battaramulla</p>
+              <p className="text-xs text-slate-600">Level 12, One Galle Face Tower, Colombo, Sri Lanka</p>
               <p className="text-[11px] text-slate-400">Business Hours: Mon - Sat 9:00 AM – 6:00 PM</p>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -331,11 +331,11 @@ export const ConsultationForm: React.FC = () => {
                 <span>074 010 2108</span>
               </a>
               <a
-                href={getWhatsAppUrl("Hello Noble Visa Centre Battaramulla Branch! I would like to book a consultation.")}
+                href={getWhatsAppUrl("Hello Noble Visa Centre One Galle Face Branch! I would like to book a consultation.")}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center p-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition shadow-xs"
-                title="WhatsApp Battaramulla Office"
+                title="WhatsApp One Galle Face Office"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
               </a>

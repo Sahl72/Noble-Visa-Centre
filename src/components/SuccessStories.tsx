@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ZoomIn, Share2, CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowRight, ZoomIn, CheckCircle2 } from 'lucide-react';
 import { SUCCESS_STORIES, getWhatsAppUrl } from '../data/visaData';
 import { WhatsAppIcon } from './Header';
 
@@ -20,6 +20,12 @@ export const SuccessStories: React.FC<SuccessStoriesProps> = ({ onOpenConsultati
     SUCCESS_STORIES[(startIndex + 1) % storiesCount],
     SUCCESS_STORIES[(startIndex + 2) % storiesCount]
   ];
+
+  const handleStartVisaJourney = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const msg = "Hello Noble Visa Centre! I saw your authentic visa approvals and would like to start my visa journey.";
+    window.open(getWhatsAppUrl(msg), '_blank');
+  };
 
   return (
     <section id="success-stories" className="py-6 sm:py-8 bg-transparent font-sans">
@@ -43,10 +49,19 @@ export const SuccessStories: React.FC<SuccessStoriesProps> = ({ onOpenConsultati
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
-                Explore real visa handover moments, official embassy stamps, and global university admissions secured through Noble Visa Centre.
+                Explore real visa approvals, official embassy grants, and university admission posters secured through Noble Visa Centre.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <button
+                  onClick={handleStartVisaJourney}
+                  id="success-stories-start-journey-btn"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition cursor-pointer active:scale-95"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
+                  <span>Start Your Visa Journey Now</span>
+                </button>
+
                 <button
                   onClick={() => {
                     if (onViewAllStories) {
@@ -54,26 +69,15 @@ export const SuccessStories: React.FC<SuccessStoriesProps> = ({ onOpenConsultati
                     }
                   }}
                   id="view-all-success-stories-btn"
-                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#071946] px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition duration-200 group active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition duration-200 group active:scale-95 cursor-pointer"
                 >
-                  <span>View All Visa Proofs</span>
-                  <ArrowRight className="w-4 h-4 text-[#071946] group-hover:translate-x-1 transition-transform" />
+                  <span>View All Proofs</span>
+                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                 </button>
-
-                <a
-                  href={getWhatsAppUrl("Hello Noble Visa Centre! I saw your authentic student visa approvals and would like to check my visa options.")}
-                  target="_blank"
-                  rel="noreferrer"
-                  id="success-stories-whatsapp-btn"
-                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition cursor-pointer active:scale-95"
-                >
-                  <WhatsAppIcon className="w-4 h-4 text-white" />
-                  <span>Chat on WhatsApp</span>
-                </a>
               </div>
             </div>
 
-            {/* Right Side: 3 Student Video/Story Cards */}
+            {/* Right Side: 3 Poster Cards (Clean full size without overlaid flags/names) */}
             <div className="lg:col-span-7 flex flex-col items-center">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 w-full">
                 {currentStories.map((story) => (
@@ -84,44 +88,34 @@ export const SuccessStories: React.FC<SuccessStoriesProps> = ({ onOpenConsultati
                         onViewAllStories();
                       }
                     }}
-                    className="group relative rounded-2xl overflow-hidden shadow-lg aspect-[3/4] bg-slate-800 cursor-pointer border border-white/10 hover:border-amber-400 transition-all duration-300 hover:scale-102"
+                    className="group relative rounded-2xl overflow-hidden shadow-lg bg-slate-900 cursor-pointer border border-white/10 hover:border-amber-400 transition-all duration-300 hover:scale-102 flex flex-col justify-between"
+                    title="Click to view all authentic visa proofs"
                   >
-                    <img 
-                      src={story.image} 
-                      alt={`${story.name} Visa Success`} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                    
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30"></div>
+                    <div className="w-full relative overflow-hidden bg-slate-950 flex items-center justify-center">
+                      <img 
+                        src={story.image} 
+                        alt="Noble Visa Centre Visa Success" 
+                        className="w-full h-auto object-contain block group-hover:scale-102 transition-transform duration-300"
+                        referrerPolicy="no-referrer"
+                      />
 
-                    {/* Top right destination flag */}
-                    <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-xs flex items-center gap-1 text-[10px] font-bold text-amber-300 border border-white/20">
-                      <span>{story.flag || '🌍'}</span>
-                      <span>{story.country}</span>
-                    </div>
-
-                    {/* Centered Zoom Indicator */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-11 h-11 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white border border-white/40 group-hover:scale-115 group-hover:bg-[#25D366] transition-all duration-300 shadow-md">
-                        <ZoomIn className="w-5 h-5 text-white" />
+                      {/* Centered Zoom Indicator */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-900 shadow-lg">
+                          <ZoomIn className="w-5 h-5 text-blue-700" />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Bottom Info: Name, Country, Visa Status */}
-                    <div className="absolute bottom-3 inset-x-3 text-left">
-                      <p className="text-xs font-black text-white truncate">
-                        {story.name}
-                      </p>
-                      <p className="text-[11px] text-slate-200 font-medium truncate mt-0.5">
-                        {story.visaType}
-                      </p>
-
-                      <div className="inline-flex items-center gap-1 text-emerald-400 text-[10px] font-bold mt-1 bg-emerald-950/70 px-2 py-0.5 rounded">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                        <span>Verified Approval</span>
-                      </div>
+                    {/* WhatsApp Action Button under the poster */}
+                    <div className="p-2 bg-slate-900/90 border-t border-white/10">
+                      <button
+                        onClick={handleStartVisaJourney}
+                        className="w-full py-2 px-2.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white text-[11px] font-extrabold shadow-md flex items-center justify-center gap-1.5 transition-colors cursor-pointer active:scale-95"
+                      >
+                        <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
+                        <span>Start Journey Now</span>
+                      </button>
                     </div>
                   </div>
                 ))}
