@@ -5,9 +5,11 @@ export const CORE_MISSION = "Your Future. Our Priority.";
 export const CORE_DESCRIPTION = "Providing expert guidance, a wide range of top destinations, and end-to-end support for studying, working, and building a better future abroad.";
 
 export const WEBSITES = [
-  "www.noblevisacentre.org",
-  "www.noblevisacentre.com"
+  "www.noblevisacentre.org"
 ];
+
+export const PRIMARY_WEBSITE = "www.noblevisacentre.org";
+export const PRIMARY_WEBSITE_URL = "https://www.noblevisacentre.org";
 
 export const SOCIAL_LINKS = {
   facebook: "https://facebook.com/noblevisacentre",
@@ -23,29 +25,35 @@ export const LOCAL_PHONE_DISPLAY = "074 010 4106";
 
 export const BUSINESS_PHONES = [
   { display: "074 010 4106", raw: "0740104106", intl: "+94 74 010 4106", label: "WhatsApp Hotline 1 / Headquarters (Battaramulla)" },
-  { display: "074 010 2108", raw: "0740102108", intl: "+94 74 010 2108", label: "WhatsApp Hotline 2 / One Galle Face Branch" }
+  { display: "074 010 2108", raw: "0740102108", intl: "+94 74 010 2108", label: "WhatsApp Hotline 2 / One Galle Face Branch" },
+  { display: "0114 166 068", raw: "0114166068", intl: "+94 11 416 6068", label: "General Line / Office Telephone" }
 ];
 
-export const EMAIL_DISPLAY = "info@noblevisacentre.org";
+export const EMAIL_DISPLAY = "nr100million@gmail.com";
+export const SECONDARY_EMAIL_DISPLAY = "info@noblevisacentre.org";
 
 export const OFFICE_BRANCHES = [
   {
     name: "Headquarters - Battaramulla",
-    address: "No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura",
+    address: "393/3, Lily Avenue, Battaramulla",
+    fullAddress: "393/3, Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Lanka",
     city: "Battaramulla, Sri Jayawardhanapura",
     postalCode: "10120",
     phone: "074 010 4106",
+    landline: "0114 166 068",
     rawPhone: "0740104106",
     tag: "Headquarters",
     hours: "Mon – Fri: 9:00 AM – 5:30 PM | Sat: 9:00 AM – 2:00 PM",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+393+Lily+Avenue+Robert+Gunawardana+Mawatha+Battaramulla+Sri+Jayawardhanapura"
+    mapsUrl: "https://www.google.com/maps/place/393+Lily+Ave,+Sri+Jayawardenepura+Kotte/@6.9028978,79.9219379,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae257547942e599:0x8c661df1a15de96d!8m2!3d6.9028925!4d79.9245128!16s%2Fg%2F11h4nzbq5g?entry=ttu"
   },
   {
     name: "One Galle Face Branch",
     address: "Level 12, One Galle Face Tower, Colombo, Sri Lanka",
+    fullAddress: "Level 12, One Galle Face Tower, Colombo 00200, Sri Lanka",
     city: "Colombo",
     postalCode: "00200",
     phone: "074 010 2108",
+    landline: "0114 166 068",
     rawPhone: "0740102108",
     tag: "Branch Office",
     hours: "Mon – Fri: 9:00 AM – 5:30 PM | Sat: 9:00 AM – 2:00 PM",
@@ -53,7 +61,7 @@ export const OFFICE_BRANCHES = [
   }
 ];
 
-export const ADDRESS_DISPLAY = "No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura | Level 12, One Galle Face Tower, Colombo, Sri Lanka";
+export const ADDRESS_DISPLAY = "393/3, Lily Avenue, Battaramulla | Level 12, One Galle Face Tower, Colombo, Sri Lanka";
 export const GOOGLE_RATING = "5.0";
 export const GOOGLE_REVIEWS_COUNT = "70+";
 

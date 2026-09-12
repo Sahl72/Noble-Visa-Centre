@@ -119,6 +119,44 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Your trusted partner for global education, work, business and travel visa solutions. We make your global journey simpler, safer and brighter.
             </p>
 
+            {/* Direct Contact Details & Emails */}
+            <div className="pt-2 space-y-1.5 text-xs">
+              <div className="flex flex-col gap-1 text-slate-200">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  <span className="font-semibold text-white">074 010 4106</span>
+                  <span className="text-slate-500">•</span>
+                  <span className="font-semibold text-white">074 010 2108</span>
+                </div>
+                <div className="flex items-center gap-2 pl-5.5 text-[11px] text-slate-300">
+                  <span className="text-slate-400">Landline:</span>
+                  <span className="font-medium text-white">0114 166 068</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-slate-200 pt-0.5">
+                <Mail className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                <a 
+                  href="mailto:nr100million@gmail.com" 
+                  className="hover:text-cyan-300 transition underline underline-offset-2 text-[11px] font-medium text-white"
+                >
+                  nr100million@gmail.com
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2 text-slate-200">
+                <Globe className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                <a 
+                  href="https://www.noblevisacentre.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-cyan-300 transition text-[11px] font-bold text-cyan-400"
+                >
+                  www.noblevisacentre.org
+                </a>
+              </div>
+            </div>
+
             {/* Social Icons matching the design */}
             <div className="flex items-center gap-2.5 pt-1">
               <a 
@@ -330,11 +368,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               
               {/* Battaramulla Headquarters Card */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Noble+Visa+Centre+393+Lily+Avenue+Robert+Gunawardana+Mawatha+Battaramulla+Sri+Jayawardhanapura"
+                href="https://www.google.com/maps/place/393+Lily+Ave,+Sri+Jayawardenepura+Kotte/@6.9028978,79.9219379,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae257547942e599:0x8c661df1a15de96d!8m2!3d6.9028925!4d79.9245128!16s%2Fg%2F11h4nzbq5g?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
-                title="Click to open Headquarters in Google Maps"
+                title="Click to open Headquarters (393/3, Lily Avenue, Battaramulla) in Google Maps"
               >
                 <div className="flex items-start gap-2.5 text-left">
                   <div className="w-8 h-8 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
@@ -345,13 +383,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                       HEADQUARTERS
                     </span>
                     <span className="text-[11px] text-slate-200 block mt-0.5 leading-snug">
-                      No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura
+                      393/3, Lily Avenue, Battaramulla
                     </span>
                     <div className="flex items-center gap-2.5 text-[10px] mt-1">
                       <span className="text-slate-300 font-bold">074 010 4106</span>
-                      <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-300 font-medium">0114 166 068</span>
+                      <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Open Now
+                        Open
                       </span>
                     </div>
                   </div>
@@ -527,7 +567,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="mt-8 pt-6 border-t border-blue-900/50 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           
           <div>
-            <p>© {new Date().getFullYear()} Noble Visa Centre (Pvt) Ltd. All Rights Reserved.</p>
+            <p>© {new Date().getFullYear()} Noble <span className="text-[#38bdf8] font-bold">Visa</span> Centre • Noble Universal Centre. <span className="text-[#4ade80] font-medium">Founded by - Nuwan Ranjan</span>. All Rights Reserved.</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 text-[11px]">

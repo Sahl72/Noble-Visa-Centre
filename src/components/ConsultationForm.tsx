@@ -291,15 +291,34 @@ export const ConsultationForm: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-blue-600"></span>
                 <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">Headquarters</h3>
               </div>
-              <p className="text-xs text-slate-600">No 393 Lily Avenue, Robert Gunawardana Mawatha, Battaramulla, Sri Jayawardhanapura</p>
-              <p className="text-[11px] text-slate-400">Business Hours: Mon - Sat 9:00 AM – 6:00 PM</p>
+              <p className="text-xs text-slate-700 font-medium">393/3, Lily Avenue, Battaramulla</p>
+              <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                <a 
+                  href="https://www.google.com/maps/place/393+Lily+Ave,+Sri+Jayawardenepura+Kotte/@6.9028978,79.9219379,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae257547942e599:0x8c661df1a15de96d!8m2!3d6.9028925!4d79.9245128!16s%2Fg%2F11h4nzbq5g?entry=ttu" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 font-medium underline"
+                >
+                  View on Google Maps ↗
+                </a>
+                <span>•</span>
+                <span>Mon - Sat 9:00 AM – 6:00 PM</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
               <a
                 href="tel:0740104106"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 px-3.5 py-2 rounded-xl text-xs font-bold transition"
+                className="inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold transition"
+                title="Call 074 010 4106"
               >
                 <span>074 010 4106</span>
+              </a>
+              <a
+                href="tel:0114166068"
+                className="inline-flex items-center justify-center gap-1.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition"
+                title="Call Landline 0114 166 068"
+              >
+                <span>0114 166 068</span>
               </a>
               <a
                 href={getWhatsAppUrl("Hello Noble Visa Centre Headquarters! I would like to book a consultation.")}

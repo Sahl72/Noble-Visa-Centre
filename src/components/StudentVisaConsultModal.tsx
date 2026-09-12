@@ -657,10 +657,10 @@ export const StudentVisaConsultModal: React.FC<StudentVisaConsultModalProps> = (
           
           <div className="text-left">
             <span className="text-[11px] text-slate-500 block">
-              Headquarters: No 393 Lily Avenue, Battaramulla | Branch: Level 12, One Galle Face Tower, Colombo
+              Headquarters: 393/3, Lily Avenue, Battaramulla | Branch: Level 12, One Galle Face Tower, Colombo
             </span>
             <span className="text-xs font-bold text-slate-800">
-              Hotlines: 074 010 4106 / 074 010 2108
+              Hotlines: 074 010 4106 / 074 010 2108 / 0114 166 068 • nr100million@gmail.com
             </span>
           </div>
 
