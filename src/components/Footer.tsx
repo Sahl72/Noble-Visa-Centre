@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Phone, 
+  PhoneCall,
   Mail, 
   MapPin, 
   Building2, 
@@ -119,38 +120,60 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Your trusted partner for global education, work, business and travel visa solutions. We make your global journey simpler, safer and brighter.
             </p>
 
-            {/* Direct Contact Details & Emails */}
-            <div className="pt-2 space-y-1.5 text-xs">
-              <div className="flex flex-col gap-1 text-slate-200">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                  <span className="font-semibold text-white">074 010 4106</span>
-                  <span className="text-slate-500">•</span>
-                  <span className="font-semibold text-white">074 010 2108</span>
+            {/* Direct Contact Details & Official Channels */}
+            <div className="pt-2.5 space-y-2 text-xs">
+              {/* Row 1: Mobile Hotlines */}
+              <div className="flex items-center gap-2.5 text-slate-200">
+                <div className="w-6 h-6 rounded-lg bg-blue-950/90 border border-blue-800/70 flex items-center justify-center text-cyan-400 flex-shrink-0 shadow-2xs">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
-                <div className="flex items-center gap-2 pl-5.5 text-[11px] text-slate-300">
-                  <span className="text-slate-400">Landline:</span>
-                  <span className="font-medium text-white">0114 166 068</span>
+                <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                  <a href="tel:0740104106" className="font-bold text-white hover:text-cyan-300 transition">
+                    074 010 4106
+                  </a>
+                  <span className="text-slate-500">•</span>
+                  <a href="tel:0740102108" className="font-bold text-white hover:text-cyan-300 transition">
+                    074 010 2108
+                  </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-slate-200 pt-0.5">
-                <Mail className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+              {/* Row 2: Office Landline */}
+              <div className="flex items-center gap-2.5 text-slate-200">
+                <div className="w-6 h-6 rounded-lg bg-blue-950/90 border border-blue-800/70 flex items-center justify-center text-cyan-400 flex-shrink-0 shadow-2xs">
+                  <PhoneCall className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex items-center gap-1.5 text-xs">
+                  <span className="text-slate-400 text-[11px]">Landline:</span>
+                  <a href="tel:0114166068" className="font-semibold text-white hover:text-cyan-300 transition">
+                    0114 166 068
+                  </a>
+                </div>
+              </div>
+
+              {/* Row 3: Official Email */}
+              <div className="flex items-center gap-2.5 text-slate-200">
+                <div className="w-6 h-6 rounded-lg bg-blue-950/90 border border-blue-800/70 flex items-center justify-center text-cyan-400 flex-shrink-0 shadow-2xs">
+                  <Mail className="w-3.5 h-3.5" />
+                </div>
                 <a 
                   href="mailto:nr100million@gmail.com" 
-                  className="hover:text-cyan-300 transition underline underline-offset-2 text-[11px] font-medium text-white"
+                  className="font-medium text-white hover:text-cyan-300 transition underline underline-offset-2 break-all text-xs"
                 >
                   nr100million@gmail.com
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-slate-200">
-                <Globe className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+              {/* Row 4: Official Website */}
+              <div className="flex items-center gap-2.5 text-slate-200">
+                <div className="w-6 h-6 rounded-lg bg-blue-950/90 border border-blue-800/70 flex items-center justify-center text-cyan-400 flex-shrink-0 shadow-2xs">
+                  <Globe className="w-3.5 h-3.5" />
+                </div>
                 <a 
                   href="https://www.noblevisacentre.org" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="hover:text-cyan-300 transition text-[11px] font-bold text-cyan-400"
+                  className="font-bold text-cyan-400 hover:text-cyan-300 transition text-xs"
                 >
                   www.noblevisacentre.org
                 </a>
@@ -371,34 +394,39 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 href="https://www.google.com/maps/place/393+Lily+Ave,+Sri+Jayawardenepura+Kotte/@6.9028978,79.9219379,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae257547942e599:0x8c661df1a15de96d!8m2!3d6.9028925!4d79.9245128!16s%2Fg%2F11h4nzbq5g?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
+                className="group relative flex items-center gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
                 title="Click to open Headquarters (393/3, Lily Avenue, Battaramulla) in Google Maps"
               >
-                <div className="flex items-start gap-2.5 text-left">
-                  <div className="w-8 h-8 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide block">
+                {/* Left Pin Icon (vertically centered) */}
+                <div className="w-8.5 h-8.5 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
+                  <MapPin className="w-4 h-4" />
+                </div>
+
+                {/* Card Content */}
+                <div className="flex-1 min-w-0 text-left space-y-1">
+                  <div className="flex items-center justify-between gap-1.5">
+                    <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide truncate">
                       HEADQUARTERS
                     </span>
-                    <span className="text-[11px] text-slate-200 block mt-0.5 leading-snug">
-                      393/3, Lily Avenue, Battaramulla
+                    <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-semibold shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Open Now
                     </span>
-                    <div className="flex items-center gap-2.5 text-[10px] mt-1">
-                      <span className="text-slate-300 font-bold">074 010 4106</span>
-                      <span className="text-slate-500">•</span>
-                      <span className="text-slate-300 font-medium">0114 166 068</span>
-                      <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold ml-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Open
-                      </span>
-                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-slate-200 leading-snug">
+                    393/3, Lily Avenue, Battaramulla
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-slate-300 pt-0.5">
+                    <span className="text-white font-bold whitespace-nowrap">074 010 4106</span>
+                    <span className="text-slate-500">•</span>
+                    <span className="text-slate-300 font-medium whitespace-nowrap">0114 166 068</span>
                   </div>
                 </div>
 
-                {/* Circular Chevron Action Button */}
-                <div className="w-7 h-7 rounded-full bg-blue-900/60 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-300 flex items-center justify-center transition-colors flex-shrink-0 border border-blue-700/60 group-hover:border-cyan-400 ml-2">
+                {/* Circular Chevron Action Button (vertically centered) */}
+                <div className="w-7 h-7 rounded-full bg-blue-900/60 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-300 flex items-center justify-center transition-colors flex-shrink-0 border border-blue-700/60 group-hover:border-cyan-400">
                   <ChevronRight className="w-4 h-4" />
                 </div>
               </a>
@@ -408,32 +436,39 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 href="https://www.google.com/maps/search/?api=1&query=One+Galle+Face+Tower+Colombo+Sri+Lanka"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
+                className="group relative flex items-center gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-blue-950/70 to-slate-900/80 border border-blue-800/60 hover:border-cyan-400/80 transition-all shadow-md hover:shadow-cyan-900/20 cursor-pointer overflow-hidden"
                 title="Click to open One Galle Face Branch in Google Maps"
               >
-                <div className="flex items-start gap-2.5 text-left">
-                  <div className="w-8 h-8 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide block">
+                {/* Left Pin Icon (vertically centered) */}
+                <div className="w-8.5 h-8.5 rounded-xl bg-blue-900/50 border border-blue-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 transition">
+                  <MapPin className="w-4 h-4" />
+                </div>
+
+                {/* Card Content */}
+                <div className="flex-1 min-w-0 text-left space-y-1">
+                  <div className="flex items-center justify-between gap-1.5">
+                    <span className="text-[11px] font-black text-cyan-400 uppercase tracking-wide truncate">
                       ONE GALLE FACE BRANCH
                     </span>
-                    <span className="text-[11px] text-slate-200 block mt-0.5 leading-snug">
-                      Level 12, One Galle Face Tower, Colombo, Sri Lanka
+                    <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-semibold shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Open Now
                     </span>
-                    <div className="flex items-center gap-2.5 text-[10px] mt-1">
-                      <span className="text-slate-300 font-bold">074 010 2108</span>
-                      <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Open Now
-                      </span>
-                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-slate-200 leading-snug">
+                    Level 12, One Galle Face Tower, Colombo
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-slate-300 pt-0.5">
+                    <span className="text-white font-bold whitespace-nowrap">074 010 2108</span>
+                    <span className="text-slate-500">•</span>
+                    <span className="text-slate-300 font-medium whitespace-nowrap">0114 166 068</span>
                   </div>
                 </div>
 
-                {/* Circular Chevron Action Button */}
-                <div className="w-7 h-7 rounded-full bg-blue-900/60 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-300 flex items-center justify-center transition-colors flex-shrink-0 border border-blue-700/60 group-hover:border-cyan-400 ml-2">
+                {/* Circular Chevron Action Button (vertically centered) */}
+                <div className="w-7 h-7 rounded-full bg-blue-900/60 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-300 flex items-center justify-center transition-colors flex-shrink-0 border border-blue-700/60 group-hover:border-cyan-400">
                   <ChevronRight className="w-4 h-4" />
                 </div>
               </a>

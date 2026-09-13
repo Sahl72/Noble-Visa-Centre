@@ -655,13 +655,21 @@ export const StudentVisaConsultModal: React.FC<StudentVisaConsultModalProps> = (
         {/* Modal Footer Bar */}
         <div className="p-3.5 sm:p-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3 flex-shrink-0">
           
-          <div className="text-left">
-            <span className="text-[11px] text-slate-500 block">
-              Headquarters: 393/3, Lily Avenue, Battaramulla | Branch: Level 12, One Galle Face Tower, Colombo
-            </span>
-            <span className="text-xs font-bold text-slate-800">
-              Hotlines: 074 010 4106 / 074 010 2108 / 0114 166 068 • nr100million@gmail.com
-            </span>
+          <div className="text-left space-y-0.5">
+            <div className="flex flex-wrap items-center gap-x-2 text-[11px] text-slate-600">
+              <span><span className="font-bold text-slate-700">Headquarters:</span> 393/3, Lily Avenue, Battaramulla</span>
+              <span className="text-slate-300 hidden sm:inline">•</span>
+              <span><span className="font-bold text-slate-700">Branch:</span> Level 12, One Galle Face Tower, Colombo</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-2 text-xs font-bold text-slate-800">
+              <a href="tel:0740104106" className="text-blue-700 hover:underline">074 010 4106</a>
+              <span className="text-slate-300">•</span>
+              <a href="tel:0740102108" className="text-blue-700 hover:underline">074 010 2108</a>
+              <span className="text-slate-300">•</span>
+              <a href="tel:0114166068" className="text-slate-600 hover:underline font-semibold">0114 166 068</a>
+              <span className="text-slate-300">•</span>
+              <a href="mailto:nr100million@gmail.com" className="text-slate-600 hover:text-blue-600 underline font-medium">nr100million@gmail.com</a>
+            </div>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">

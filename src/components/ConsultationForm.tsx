@@ -285,7 +285,7 @@ export const ConsultationForm: React.FC = () => {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           
           {/* Headquarters Card */}
-          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 h-full">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-600"></span>
@@ -305,7 +305,7 @@ export const ConsultationForm: React.FC = () => {
                 <span>Mon - Sat 9:00 AM – 6:00 PM</span>
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto flex-shrink-0">
               <a
                 href="tel:0740104106"
                 className="inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold transition"
@@ -333,21 +333,40 @@ export const ConsultationForm: React.FC = () => {
           </div>
 
           {/* One Galle Face Branch Card */}
-          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 h-full">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-500"></span>
                 <h3 className="text-xs font-black text-[#0a193b] uppercase tracking-wider">One Galle Face Branch</h3>
               </div>
-              <p className="text-xs text-slate-600">Level 12, One Galle Face Tower, Colombo, Sri Lanka</p>
-              <p className="text-[11px] text-slate-400">Business Hours: Mon - Sat 9:00 AM – 6:00 PM</p>
+              <p className="text-xs text-slate-700 font-medium">Level 12, One Galle Face Tower, Colombo</p>
+              <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=One+Galle+Face+Tower+Colombo+Sri+Lanka" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-amber-700 hover:text-amber-800 font-medium underline"
+                >
+                  View on Google Maps ↗
+                </a>
+                <span>•</span>
+                <span>Mon - Sat 9:00 AM – 6:00 PM</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto flex-shrink-0">
               <a
                 href="tel:0740102108"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-200 px-3.5 py-2 rounded-xl text-xs font-bold transition"
+                className="inline-flex items-center justify-center gap-1.5 bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-200 px-3 py-1.5 rounded-xl text-xs font-bold transition"
+                title="Call 074 010 2108"
               >
                 <span>074 010 2108</span>
+              </a>
+              <a
+                href="tel:0114166068"
+                className="inline-flex items-center justify-center gap-1.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition"
+                title="Call Landline 0114 166 068"
+              >
+                <span>0114 166 068</span>
               </a>
               <a
                 href={getWhatsAppUrl("Hello Noble Visa Centre One Galle Face Branch! I would like to book a consultation.")}
